@@ -11,7 +11,7 @@ namespace Networking
     public class WebSocketClient : MonoBehaviour
     {
         private static WebSocket _websocket;
-        private const string ServerUrl = "wss://twenty-backend.thinkinggms.com/ws";
+        private const string ServerUrl = "wss://rps-backend.thinkinggms.com/ws";
 
         public bool IsConnected { get; private set; }
         public bool IsConnecting { get; private set; }

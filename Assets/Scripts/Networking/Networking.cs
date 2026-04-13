@@ -11,7 +11,7 @@ namespace Networking
 {
     public class Networking : MonoBehaviour
     {
-        private const string BaseUrl = "https://twenty-backend.thinkinggms.com";
+        private const string BaseUrl = "https://rps-backend.thinkinggms.com";
         public static Networking Instance { get; private set; }
         public WebSocketClient webSocketClient;
 

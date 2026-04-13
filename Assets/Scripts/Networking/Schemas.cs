@@ -10,5 +10,18 @@ namespace Networking
         public string message;
     }
 
+    [Serializable]
+    public class LoginRequest
+    {
+        public string username;
+        public string password;
+    }
+
+    [Serializable]
+    public class JwtResponse
+    {
+        public string token;
+    }
+    
     public class Void { }
 }
