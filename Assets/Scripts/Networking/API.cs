@@ -9,12 +9,12 @@
 
         public static Networking.Post<JwtResponse> Login(string username, string password)
         {
-            return new Networking.Post<JwtResponse>("/api/auth/login", new { username, password });
+            return new Networking.Post<JwtResponse>("/api/auth/login", new LoginRequest(username, password));
         }
 
         public static Networking.Post<JwtResponse> Signup(string username, string password)
         {
-            return new Networking.Post<JwtResponse>("/api/auth/signup", new { username, password });
+            return new Networking.Post<JwtResponse>("/api/auth/signup", new LoginRequest(username, password));
         }
     }
 }

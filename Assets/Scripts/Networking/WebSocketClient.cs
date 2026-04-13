@@ -88,6 +88,7 @@ namespace Networking
 
         private void HandleMessage(string message)
         {
+            Debug.Log(message);
             var command = JsonConvert.DeserializeObject<Void>(message);
             switch ("match/matched")
             {
