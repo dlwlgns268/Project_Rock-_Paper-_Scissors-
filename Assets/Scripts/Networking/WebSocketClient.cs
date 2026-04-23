@@ -16,6 +16,8 @@ namespace Networking
         public bool IsConnected { get; private set; }
         public bool IsConnecting { get; private set; }
 
+        public event Action<WsMessage, string> OnMessageReceived; // WsMessage, original payload
+
         public async void ConnectOn()
         {
             try
@@ -86,17 +88,32 @@ namespace Networking
 #endif
         }
 
+        public static async Task SendMessage(string type, object data)
+        {
+            if (_websocket == null || _websocket.State != WebSocketState.Open) return;
+
+            var wsMessage = WsMessage.Of(type, data);
+            var json = JsonConvert.SerializeObject(wsMessage);
+            await _websocket.SendText(json);
+        }
+
         private void HandleMessage(string message)
         {
-            Debug.Log(message);
-            var command = JsonConvert.DeserializeObject<Void>(message);
-            switch ("match/matched")
+            try
             {
-                case "match/matched":
-                    // 뭐라도 써봐
-                    break;
+                var wsMessage = JsonConvert.DeserializeObject<WsMessage>(message);
+                if (wsMessage == null || string.IsNullOrEmpty(wsMessage.type)) return;
+
+                Debug.Log($"Received message: {wsMessage.type}");
+                OnMessageReceived?.Invoke(wsMessage, message);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error parsing message: {e.Message}\n{message}");
             }
         }
+
+        public static bool IsConnectedToService() => _websocket != null && _websocket.State == WebSocketState.Open;
 
         public static async Task Message(string message)
         {
