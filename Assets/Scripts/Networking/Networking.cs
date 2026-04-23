@@ -15,6 +15,8 @@ namespace Networking
         public static Networking Instance { get; private set; }
         public WebSocketClient webSocketClient;
 
+        public static int? LocalPlayerId; // 0 or 1 etc.
+
         [CanBeNull] public static string AccessToken;
 
         public static bool TryLoadAccessToken() => AccessToken != null || !string.IsNullOrEmpty(AccessToken = PlayerPrefs.GetString("AccessToken"));
@@ -136,7 +138,7 @@ namespace Networking
 
             public Post(string path, object body) : base(path)
             {
-                _body = JsonUtility.ToJson(body);
+                _body = JsonConvert.SerializeObject(body);
             }
 
             protected override UnityWebRequest WebRequest(string url)
@@ -151,7 +153,7 @@ namespace Networking
 
             public Put(string path, object body) : base(path)
             {
-                _body = JsonUtility.ToJson(body);
+                _body = JsonConvert.SerializeObject(body);
             }
 
             protected override UnityWebRequest WebRequest(string url)
