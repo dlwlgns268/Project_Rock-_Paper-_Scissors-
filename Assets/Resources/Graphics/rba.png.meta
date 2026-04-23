@@ -1,10 +1,82 @@
 fileFormatVersion: 2
-guid: 6a701f93e453fcd48b123aa0ba16ae10
+guid: 434fff059ae474449bfccb587280a738
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 400725306778471834
-    second: 9-sliced InputField_0
+      213: -4870845100522159771
+    second: rba_0
+  - first:
+      213: 6568312820406080589
+    second: rba_1
+  - first:
+      213: -5836704914751089719
+    second: rba_2
+  - first:
+      213: -6863340782130682360
+    second: rba_3
+  - first:
+      213: -8619936940341108579
+    second: rba_4
+  - first:
+      213: 1346463892925776314
+    second: rba_5
+  - first:
+      213: -1964052686916375533
+    second: rba_6
+  - first:
+      213: -5977626441273308660
+    second: rba_7
+  - first:
+      213: -7488356426449203337
+    second: rba_8
+  - first:
+      213: 2057091041286005620
+    second: rba_9
+  - first:
+      213: 4528567216734168661
+    second: rba_10
+  - first:
+      213: 7811996648856573052
+    second: rba_11
+  - first:
+      213: -5624174404438358510
+    second: rba_12
+  - first:
+      213: 663363369736002546
+    second: rba_13
+  - first:
+      213: 8221653303891127760
+    second: rba_14
+  - first:
+      213: 3455420748573852308
+    second: rba_15
+  - first:
+      213: 7650351168327976420
+    second: rba_16
+  - first:
+      213: -212778674792372869
+    second: rba_17
+  - first:
+      213: -6332244195251945428
+    second: rba_18
+  - first:
+      213: 50323339711439062
+    second: rba_19
+  - first:
+      213: 9073388616598908999
+    second: rba_20
+  - first:
+      213: 4244013168116734399
+    second: rba_21
+  - first:
+      213: 481687335273130057
+    second: rba_22
+  - first:
+      213: -8575346132508963980
+    second: rba_23
+  - first:
+      213: 4141691871689677444
+    second: rba_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +185,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9-sliced InputField_0
+      name: rba_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 804
-        height: 96
+        width: 1100
+        height: 1130
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 21, y: 31, z: 27, w: 23}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9d4a0b1b89af8500800000000000000
-      internalID: 400725306778471834
+      spriteID: 561cc6b1038476cb0800000000000000
+      internalID: -4870845100522159771
       vertices: []
       indices: 
       edges: []
@@ -138,7 +210,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ea47475a913b9f4428f627ed248c22a1
+    spriteID: cf64c826c6a195e499bcaef6cbfdacaf
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +220,31 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      9-sliced InputField_0: 400725306778471834
+      rba_0: -4870845100522159771
+      rba_1: 6568312820406080589
+      rba_10: 4528567216734168661
+      rba_11: 7811996648856573052
+      rba_12: -5624174404438358510
+      rba_13: 663363369736002546
+      rba_14: 8221653303891127760
+      rba_15: 3455420748573852308
+      rba_16: 7650351168327976420
+      rba_17: -212778674792372869
+      rba_18: -6332244195251945428
+      rba_19: 50323339711439062
+      rba_2: -5836704914751089719
+      rba_20: 9073388616598908999
+      rba_21: 4244013168116734399
+      rba_22: 481687335273130057
+      rba_23: -8575346132508963980
+      rba_24: 4141691871689677444
+      rba_3: -6863340782130682360
+      rba_4: -8619936940341108579
+      rba_5: 1346463892925776314
+      rba_6: -1964052686916375533
+      rba_7: -5977626441273308660
+      rba_8: -7488356426449203337
+      rba_9: 2057091041286005620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
