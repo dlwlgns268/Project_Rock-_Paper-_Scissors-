@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,7 @@ namespace Networking
                 Debug.Log("Connection open");
                 IsConnected = true;
                 IsConnecting = false;
+                StartCoroutine(PingCheck());
             };
 
             _websocket.OnError += e =>
@@ -89,6 +91,15 @@ namespace Networking
 #endif
         }
 
+        private IEnumerator PingCheck()
+        {
+            while (IsConnected)
+            {
+                API.Ping();
+                yield return new WaitForSeconds(10f);
+            }
+        }
+
         public new static async Task SendMessage(string type, object data)
         {
             if (_websocket == null || _websocket.State != WebSocketState.Open) return;
@@ -108,8 +119,13 @@ namespace Networking
                 Debug.Log($"Received message: {wsMessage.type}");
                 switch (wsMessage.type)
                 {
+                    case "PONG":
+                        break;
                     case "CONNECTED":
                         SceneManager.LoadScene("Pending");
+                        break;
+                    case "MATCH_FOUND":
+                        SceneManager.LoadScene("MainGame");
                         break;
                 }
 

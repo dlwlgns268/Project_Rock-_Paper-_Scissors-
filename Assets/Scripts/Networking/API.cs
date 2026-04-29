@@ -25,6 +25,11 @@ namespace Networking
             return new Networking.Get<List<Card>>("/api/cards");
         }
 
+        public static Task Ping()
+        {
+            return WebSocketClient.SendMessage("PING", null);
+        }
+
         public static Task GetCards()
         {
             return WebSocketClient.SendMessage("DRAW_CARDS", null);
