@@ -29,6 +29,7 @@ namespace Networking
         public string token;
     }
 
+    [Serializable]
     public class WsMessage
     {
         public string type;
@@ -41,6 +42,12 @@ namespace Networking
     public class CardSummonData
     {
         public int cardIndex;
+    }
+
+    [Serializable]
+    public class Card
+    {
+        public int id;
     }
 
     [Serializable]

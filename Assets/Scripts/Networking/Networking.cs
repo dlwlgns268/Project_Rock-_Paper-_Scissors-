@@ -34,6 +34,11 @@ namespace Networking
             DontDestroyOnLoad(gameObject);
         }
 
+        public static void DisconnectAllSessions()
+        {
+            Instance.webSocketClient.DisconnectAsync().GetAwaiter().GetResult();
+        }
+
         public abstract class Request<T> where T : class
         {
             private readonly Dictionary<string, string> _headers;

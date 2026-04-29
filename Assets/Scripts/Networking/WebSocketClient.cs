@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using NativeWebSocket;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Networking
 {
@@ -88,7 +89,7 @@ namespace Networking
 #endif
         }
 
-        public static async Task SendMessage(string type, object data)
+        public new static async Task SendMessage(string type, object data)
         {
             if (_websocket == null || _websocket.State != WebSocketState.Open) return;
 
@@ -105,6 +106,13 @@ namespace Networking
                 if (wsMessage == null || string.IsNullOrEmpty(wsMessage.type)) return;
 
                 Debug.Log($"Received message: {wsMessage.type}");
+                switch (wsMessage.type)
+                {
+                    case "CONNECTED":
+                        SceneManager.LoadScene("Pending");
+                        break;
+                }
+
                 OnMessageReceived?.Invoke(wsMessage, message);
             }
             catch (Exception e)

@@ -1,7 +1,7 @@
 using Networking;
 using UnityEngine;
 
-namespace Auth
+namespace NetAccess
 {
     public class GameStartLogin : MonoBehaviour
     {
