@@ -33,9 +33,9 @@ namespace Networking
     public class WsMessage
     {
         public string type;
-        public object data;
+        public string data;
 
-        public static WsMessage Of(string type, object data) => new WsMessage { type = type, data = data };
+        public static WsMessage Of(string type, string data) => new WsMessage { type = type, data = data };
     }
 
     [Serializable]
@@ -45,9 +45,21 @@ namespace Networking
     }
 
     [Serializable]
-    public class Card
+    public class CardData
     {
         public int id;
+        public int starRate;
+        public int indexByStar;
+        public string name;
+        public Element type;
+        
+        public enum Element {
+            LIGHT,
+            DARK,
+            FIRE,
+            WATER,
+            GRASS
+        }
     }
 
     [Serializable]

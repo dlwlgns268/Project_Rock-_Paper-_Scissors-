@@ -20,9 +20,14 @@ namespace Networking
             return new Networking.Post<JwtResponse>("/api/auth/signup", new LoginRequest(username, password));
         }
 
-        public static Networking.Get<List<Card>> GetAllCards()
+        public static Networking.Get<List<CardData>> GetAllCards()
         {
-            return new Networking.Get<List<Card>>("/api/cards");
+            return new Networking.Get<List<CardData>>("/api/cards");
+        }
+
+        public static Networking.Get<CardData> GetCardData(long id)
+        {
+            return new Networking.Get<CardData>($"/api/cards/{id}");
         }
 
         public static Task Ping()

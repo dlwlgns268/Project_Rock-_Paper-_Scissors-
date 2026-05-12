@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using GameLogic;
 using NativeWebSocket;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -104,7 +105,7 @@ namespace Networking
         {
             if (_websocket == null || _websocket.State != WebSocketState.Open) return;
 
-            var wsMessage = WsMessage.Of(type, data);
+            var wsMessage = WsMessage.Of(type, JsonConvert.SerializeObject(data));
             var json = JsonConvert.SerializeObject(wsMessage);
             await _websocket.SendText(json);
         }
@@ -126,6 +127,9 @@ namespace Networking
                         break;
                     case "MATCH_FOUND":
                         SceneManager.LoadScene("MainGame");
+                        break;
+                    case "CARDS_DRAWN":
+                        GameStatics.Cards = JsonConvert.DeserializeObject<List<long>>(wsMessage.data);
                         break;
                 }
 
