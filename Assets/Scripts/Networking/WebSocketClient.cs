@@ -127,18 +127,26 @@ namespace Networking
                         SceneManager.LoadScene("Pending");
                         break;
                     case "MATCH_FOUND":
-                        var data = JsonConvert.DeserializeObject<StartData>(wsMessage.data);
-                        GameStatics.RoomId = data.roomId;
-                        GameStatics.OpponentName = data.opponent;
+                        var startData = JsonConvert.DeserializeObject<StartData>(wsMessage.data);
+                        GameStatics.RoomId = startData.roomId;
+                        GameStatics.OpponentName = startData.opponent;
                         API.GameStartRequest();
                         break;
                     case "CARDS_DRAWN":
-                        GameStatics.Cards = JsonConvert.DeserializeObject<List<long>>(wsMessage.data);
+                        GameStatics.HandCards = JsonConvert.DeserializeObject<List<long>>(wsMessage.data);
                         break;
                     case "GAME_START_INFO":
-                        var startData = JsonConvert.DeserializeObject<GameStartInfoData>(wsMessage.data);
-                        GameStatics.OpponentCards = startData.cards;
+                        var gameStartInfoData = JsonConvert.DeserializeObject<GameStartInfoData>(wsMessage.data);
+                        GameStatics.OpponentHandCards = gameStartInfoData.cards;
+                        GameStatics.IsMyTurn = gameStartInfoData.isMyTurn;
+                        GameStatics.IsPlayer1 = gameStartInfoData.player1Name != GameStatics.OpponentName;
                         SceneManager.LoadScene("MainGame");
+                        break;
+                    case "FIELD_STATE_UPDATE":
+                        var fieldStateData = JsonConvert.DeserializeObject<FieldStateData>(wsMessage.data);
+                        GameStatics.IsMyTurn = fieldStateData.currentTurn != GameStatics.OpponentName;
+                        GameStatics.FieldCards = GameStatics.IsPlayer1 ? fieldStateData.player1FieldList : fieldStateData.player2FieldList;
+                        GameStatics.OpponentFieldCards = GameStatics.IsPlayer1 ? fieldStateData.player2FieldList : fieldStateData.player1FieldList;
                         break;
                 }
 

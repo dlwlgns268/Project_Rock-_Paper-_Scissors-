@@ -114,6 +114,7 @@ namespace Networking
         public bool isMyTurn;
         public string currentTurn;
         public string firstPlayer;
+        public string player1Name;
     }
     
     [Serializable]
@@ -125,6 +126,14 @@ namespace Networking
     public class AttackData {
         public long attackerCardId;
         public long targetCardId;
+    }
+    
+    [Serializable]
+    public class FieldStateData {
+        public string roomId;
+        public string currentTurn;
+        public List<long> player1FieldList;
+        public List<long> player2FieldList;
     }
     
     public class Void { }

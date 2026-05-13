@@ -15,8 +15,8 @@ namespace NetAccess
 
         private void Update()
         {
-            matchingButton.interactable = GameStatics.Cards?.Count == 5;
-            drawButton.interactable = GameStatics.Cards?.Count != 5;
+            matchingButton.interactable = GameStatics.HandCards?.Count == 5;
+            drawButton.interactable = GameStatics.HandCards?.Count != 5;
         }
 
         public void DrawCards()
