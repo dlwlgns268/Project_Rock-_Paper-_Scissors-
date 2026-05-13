@@ -8,6 +8,7 @@ using NativeWebSocket;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace Networking
 {
@@ -126,10 +127,18 @@ namespace Networking
                         SceneManager.LoadScene("Pending");
                         break;
                     case "MATCH_FOUND":
-                        SceneManager.LoadScene("MainGame");
+                        var data = JsonConvert.DeserializeObject<StartData>(wsMessage.data);
+                        GameStatics.RoomId = data.roomId;
+                        GameStatics.OpponentName = data.opponent;
+                        API.GameStartRequest();
                         break;
                     case "CARDS_DRAWN":
                         GameStatics.Cards = JsonConvert.DeserializeObject<List<long>>(wsMessage.data);
+                        break;
+                    case "GAME_START_INFO":
+                        var startData = JsonConvert.DeserializeObject<GameStartInfoData>(wsMessage.data);
+                        GameStatics.OpponentCards = startData.cards;
+                        SceneManager.LoadScene("MainGame");
                         break;
                 }
 

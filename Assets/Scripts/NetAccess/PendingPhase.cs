@@ -1,12 +1,24 @@
+using System;
+using GameLogic;
 using Networking;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NetAccess
 {
     public class PendingPhase : MonoBehaviour
     {
         public GameObject matchingModal;
-        
+        public GameObject libraryModal;
+        public Button matchingButton;
+        public Button drawButton;
+
+        private void Update()
+        {
+            matchingButton.interactable = GameStatics.Cards?.Count == 5;
+            drawButton.interactable = GameStatics.Cards?.Count != 5;
+        }
+
         public void DrawCards()
         {
             API.GetCards();
@@ -30,7 +42,7 @@ namespace NetAccess
             {
                 // todo: 가져온 카드 보여주기
             });
-            // todo: 카드 정보 불러오는 중.. 모달 추가하기
+            libraryModal.SetActive(true);
         }
 
         public void Exit()

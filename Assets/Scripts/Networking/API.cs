@@ -49,5 +49,27 @@ namespace Networking
         {
             return WebSocketClient.SendMessage("CANCEL_MATCHMAKING", null);
         }
+
+        public static Task GameStartRequest()
+        {
+            return WebSocketClient.SendMessage("GAME_START_REQUEST", null);
+        }
+
+        public static Task Summon(long cardId)
+        {
+            return WebSocketClient.SendMessage("SUMMON", new SummonData
+            {
+                cardId = cardId
+            });
+        }
+
+        public static Task Attack(long cardId, long targetId)
+        {
+            return WebSocketClient.SendMessage("ATTACK", new AttackData
+            { 
+                attackerCardId = cardId,
+                targetCardId = targetId
+            });
+        }
     }
 }

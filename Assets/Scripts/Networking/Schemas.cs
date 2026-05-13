@@ -100,6 +100,32 @@ namespace Networking
         public int targetCardIndex;
         public string effectType; // 효과 종류 (예: ATTACK, HEAL 등)
     }
+
+    [Serializable]
+    public class StartData
+    {
+        public string roomId;
+        public string opponent;
+    }
+    
+    [Serializable]
+    public class GameStartInfoData {
+        public List<long> cards;
+        public bool isMyTurn;
+        public string currentTurn;
+        public string firstPlayer;
+    }
+    
+    [Serializable]
+    public class SummonData {
+        public long cardId;
+    }
+
+    [Serializable]
+    public class AttackData {
+        public long attackerCardId;
+        public long targetCardId;
+    }
     
     public class Void { }
 }
