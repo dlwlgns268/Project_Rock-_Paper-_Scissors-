@@ -138,6 +138,8 @@ namespace Networking
                     case "GAME_START_INFO":
                         var gameStartInfoData = JsonConvert.DeserializeObject<GameStartInfoData>(wsMessage.data);
                         GameStatics.OpponentHandCards = gameStartInfoData.cards;
+                        GameStatics.FieldCards = new List<long>();
+                        GameStatics.OpponentFieldCards = new List<long>();
                         GameStatics.IsMyTurn = gameStartInfoData.currentTurn != GameStatics.OpponentName;
                         GameStatics.IsPlayer1 = gameStartInfoData.player1Name != GameStatics.OpponentName;
                         SceneManager.LoadScene("MainGame");
