@@ -10,12 +10,14 @@ namespace GameLogic
         {
             if (isOpponent)
             {
-                gameObject.SetActive(GameStatics.OpponentFieldCards.Count > index);
+                image.enabled = GameStatics.OpponentFieldCards.Count > index;
+                if (GameStatics.OpponentFieldCards.Count <= index) return;
                 if (card.id != GameStatics.OpponentFieldCards[index]) UpdateCardData();
             }
             else
             {
-                gameObject.SetActive(GameStatics.FieldCards.Count > index);
+                image.enabled = GameStatics.FieldCards.Count > index;
+                if (GameStatics.FieldCards.Count <= index) return;
                 if (card.id != GameStatics.FieldCards[index]) UpdateCardData();
             }
             image.sprite = cardImage;
