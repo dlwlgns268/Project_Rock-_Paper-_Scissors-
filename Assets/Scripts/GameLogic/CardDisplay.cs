@@ -12,7 +12,7 @@ namespace GameLogic
         public Sprite cardImage;
         public bool isOpponent;
 
-        private void Start()
+        protected virtual void Start()
         {
             API.GetCardData(isOpponent ? GameStatics.OpponentHandCards[index] : GameStatics.HandCards[index]).OnResponse(c =>
             {
@@ -21,8 +21,9 @@ namespace GameLogic
             }).Build();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
+            gameObject.SetActive(!GameStatics.FieldCards.Contains(card.id));
             image.sprite = isOpponent && !GameStatics.OpponentFieldCards.Contains(card.id) ? GameManager.Instance.cardBack : cardImage;
         }
     }
