@@ -42,6 +42,7 @@ namespace GameLogic
 
         public void BackToPending()
         {
+            GameStatics.ResetGameStatic();
             SceneManager.LoadScene("Pending");
         }
     }
