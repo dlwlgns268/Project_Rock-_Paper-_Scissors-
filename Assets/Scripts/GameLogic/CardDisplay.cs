@@ -23,7 +23,9 @@ namespace GameLogic
 
         protected virtual void Update()
         {
-            gameObject.SetActive(!GameStatics.FieldCards.Contains(card.id));
+            image.enabled = isOpponent
+                ? !GameStatics.OpponentFieldCards.Contains(card.id) && !GameStatics.OpponentCatacombCards.Contains(card.id)
+                : !GameStatics.FieldCards.Contains(card.id) && !GameStatics.CatacombCards.Contains(card.id);
             image.sprite = isOpponent && !GameStatics.OpponentFieldCards.Contains(card.id) ? GameManager.Instance.cardBack : cardImage;
         }
     }

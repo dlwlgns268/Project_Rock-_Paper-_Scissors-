@@ -140,6 +140,8 @@ namespace Networking
                         GameStatics.OpponentHandCards = gameStartInfoData.cards;
                         GameStatics.FieldCards = new List<long>();
                         GameStatics.OpponentFieldCards = new List<long>();
+                        GameStatics.CatacombCards = new List<long>();
+                        GameStatics.OpponentCatacombCards = new List<long>();
                         GameStatics.IsMyTurn = gameStartInfoData.currentTurn != GameStatics.OpponentName;
                         GameStatics.IsPlayer1 = gameStartInfoData.player1Name != GameStatics.OpponentName;
                         SceneManager.LoadScene("MainGame");
@@ -149,6 +151,8 @@ namespace Networking
                         GameStatics.IsMyTurn = fieldStateData.currentTurn != GameStatics.OpponentName;
                         GameStatics.FieldCards = GameStatics.IsPlayer1 ? fieldStateData.player1FieldList : fieldStateData.player2FieldList;
                         GameStatics.OpponentFieldCards = GameStatics.IsPlayer1 ? fieldStateData.player2FieldList : fieldStateData.player1FieldList;
+                        GameStatics.CatacombCards = GameStatics.IsPlayer1 ? fieldStateData.player1CatacombList : fieldStateData.player2CatacombList;
+                        GameStatics.OpponentCatacombCards = GameStatics.IsPlayer1 ? fieldStateData.player2CatacombList : fieldStateData.player1CatacombList;
                         break;
                 }
 

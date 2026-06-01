@@ -9,6 +9,8 @@ namespace GameLogic
         public static List<long> OpponentHandCards;
         public static List<long> FieldCards;
         public static List<long> OpponentFieldCards;
+        public static List<long> CatacombCards;
+        public static List<long> OpponentCatacombCards;
         public static string RoomId;
         public static string OpponentName;
         public static bool IsMyTurn;

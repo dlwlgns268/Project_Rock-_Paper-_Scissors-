@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 27528025}
   - component: {fileID: 27528027}
   - component: {fileID: 27528026}
+  - component: {fileID: 27528028}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -231,6 +232,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27528024}
   m_CullTransparentMesh: 1
+--- !u!114 &27528028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27528024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e640e9b28ec9c429d79870f5d0c609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatacombsCardDisplay
+  image: {fileID: 27528026}
+  isOpponent: 1
 --- !u!1 &176657156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +1988,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 242945390}
         m_TargetAssemblyTypeName: GameLogic.CardSelector, Assembly-CSharp
-        m_MethodName: SelectCard
+        m_MethodName: SelectTarget
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 992146982}
@@ -2504,7 +2519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 242945390}
         m_TargetAssemblyTypeName: GameLogic.CardSelector, Assembly-CSharp
-        m_MethodName: SelectCard
+        m_MethodName: SelectTarget
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1473611172}
@@ -2740,6 +2755,7 @@ GameObject:
   - component: {fileID: 1522134036}
   - component: {fileID: 1522134038}
   - component: {fileID: 1522134037}
+  - component: {fileID: 1522134039}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2804,6 +2820,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522134035}
   m_CullTransparentMesh: 1
+--- !u!114 &1522134039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522134035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e640e9b28ec9c429d79870f5d0c609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatacombsCardDisplay
+  image: {fileID: 1522134037}
+  isOpponent: 0
 --- !u!1 &1548270994
 GameObject:
   m_ObjectHideFlags: 0

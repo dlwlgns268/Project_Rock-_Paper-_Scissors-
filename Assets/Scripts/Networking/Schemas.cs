@@ -134,6 +134,9 @@ namespace Networking
         public string currentTurn;
         public List<long> player1FieldList;
         public List<long> player2FieldList;
+        public List<long> player1CatacombList;
+        public List<long> player2CatacombList;
+        
     }
     
     public class Void { }
