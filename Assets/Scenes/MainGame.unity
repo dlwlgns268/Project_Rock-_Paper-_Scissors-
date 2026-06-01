@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5119e2f08d948041ae2fe06717f60ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  destroyOnLoad: 1
   cardBack: {fileID: -7336099306971489684, guid: 7b784ae862314ef449d9989236c20740, type: 3}
   cards:
   - {fileID: 11400000, guid: 99bbc75171fcd1240b0b17e5940213b6, type: 2}

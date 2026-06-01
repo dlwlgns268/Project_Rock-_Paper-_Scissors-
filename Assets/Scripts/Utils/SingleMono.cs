@@ -4,6 +4,8 @@ namespace Utils
 {
     public class SingleMono<T> : MonoBehaviour where T : MonoBehaviour
     {
+        public bool destroyOnLoad;
+        
         public static T Instance
         {
             get
@@ -23,7 +25,7 @@ namespace Utils
                 return;
             }
             _instance = this as T;
-            DontDestroyOnLoad(gameObject);
+            if (!destroyOnLoad) DontDestroyOnLoad(gameObject);
         }
     }
 }
