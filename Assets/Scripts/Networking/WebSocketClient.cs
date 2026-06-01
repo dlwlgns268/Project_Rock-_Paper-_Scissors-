@@ -154,6 +154,10 @@ namespace Networking
                         GameStatics.CatacombCards = GameStatics.IsPlayer1 ? fieldStateData.player1CatacombList : fieldStateData.player2CatacombList;
                         GameStatics.OpponentCatacombCards = GameStatics.IsPlayer1 ? fieldStateData.player2CatacombList : fieldStateData.player1CatacombList;
                         break;
+                    case "GAME_LOSE":
+                    case "GAME_WIN":
+                        GameManager.Instance.OpenResultModal(wsMessage.type == "GAME_WIN");
+                        break;
                 }
 
                 OnMessageReceived?.Invoke(wsMessage, message);
