@@ -36,7 +36,7 @@ namespace Networking
 
         public static void DisconnectAllSessions()
         {
-            Instance.webSocketClient.DisconnectAsync().GetAwaiter().GetResult();
+            _ = Instance.webSocketClient.DisconnectAsync();
         }
 
         public abstract class Request<T> where T : class
